@@ -1,0 +1,40 @@
+dn: ou=groups,dc=leonardosugahara,dc=com,dc=br
+ou: groups
+objectClass: top
+objectClass: organizationalUnit
+description: Grupo Generico
+
+dn: ou=members,dc=leonardosugahara,dc=com,dc=br
+ou: members
+objectClass: top
+objectClass: organizationalUnit
+description: Grupo de Membros
+
+
+dn: cn=leonardo,ou=members,dc=leonardosugahara,dc=com,dc=br
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+cn: leonardo
+sn: leonardo
+userPassword: {crypt}x
+
+dn: cn=tester1,ou=members,dc=leonardosugahara,dc=com,dc=br
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+cn: tester1
+sn: tester1
+userPassword: {crypt}x
+
+dn: cn=developers,ou=groups,dc=leonardosugahara,dc=com,dc=br
+objectclass: groupOfNames
+cn: developers
+description: Grupo Desenvolvedores
+member: cn=leonardo,ou=members,dc=leonardosugahara,dc=com,dc=br
+
+dn: cn=testers,ou=groups,dc=leonardosugahara,dc=com,dc=br
+objectclass: groupOfNames
+cn: tester
+description: Grupo Testes
+member: cn=tester1,ou=members,dc=leonardosugahara,dc=com,dc=br
