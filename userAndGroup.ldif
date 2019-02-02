@@ -1,40 +1,60 @@
 dn: ou=groups,dc=leonardosugahara,dc=com,dc=br
-ou: groups
-objectClass: top
 objectClass: organizationalUnit
+objectClass: top
+ou: groups
 description: Grupo Generico
 
 dn: ou=members,dc=leonardosugahara,dc=com,dc=br
-ou: members
 objectClass: top
 objectClass: organizationalUnit
-description: Grupo de Membros
-
-
-dn: cn=leonardo,ou=members,dc=leonardosugahara,dc=com,dc=br
-objectClass: top
-objectClass: person
-objectClass: organizationalPerson
-cn: leonardo
-sn: leonardo
-userPassword: {crypt}x
-
-dn: cn=tester1,ou=members,dc=leonardosugahara,dc=com,dc=br
-objectClass: top
-objectClass: person
-objectClass: organizationalPerson
-cn: tester1
-sn: tester1
-userPassword: {crypt}x
-
-dn: cn=developers,ou=groups,dc=leonardosugahara,dc=com,dc=br
-objectclass: groupOfNames
-cn: developers
-description: Grupo Desenvolvedores
-member: cn=leonardo,ou=members,dc=leonardosugahara,dc=com,dc=br
+ou: members
 
 dn: cn=testers,ou=groups,dc=leonardosugahara,dc=com,dc=br
-objectclass: groupOfNames
+objectClass: groupOfNames
 cn: tester
+cn: testers
+member: cn=tester,cn=USER,cn=users,ou=members,dc=leonardosugahara,dc=com,dc=br
 description: Grupo Testes
-member: cn=tester1,ou=members,dc=leonardosugahara,dc=com,dc=br
+
+dn: cn=developers,ou=groups,dc=leonardosugahara,dc=com,dc=br
+objectClass: groupOfNames
+cn: developers
+member: cn=developer,cn=USER,cn=users,ou=members,dc=leonardosugahara,dc=com,dc=br
+description: Grupo Desenvolvedores
+
+dn: cn=TESTER_ROLE,cn=testers,ou=groups,dc=leonardosugahara,dc=com,dc=br
+objectClass: top
+objectClass: organizationalRole
+cn: TESTER_ROLE
+
+dn: cn=DEVELOPER_ROLE,cn=developers,ou=groups,dc=leonardosugahara,dc=com,dc=
+ br
+objectClass: top
+objectClass: organizationalRole
+cn: DEVELOPER_ROLE
+
+dn: cn=users,ou=members,dc=leonardosugahara,dc=com,dc=br
+objectClass: top
+objectClass: groupOfUniqueNames
+cn: users
+uniqueMember: cn=developer,cn=USER,cn=users,ou=members,dc=leonardosugahara,dc=com,dc=br
+uniqueMember: cn=tester,cn=USER,cn=users,ou=members,dc=leonardosugahara,dc=com,dc=br
+
+dn: cn=USER,cn=users,ou=members,dc=leonardosugahara,dc=com,dc=br
+objectClass: top
+objectClass: organizationalRole
+cn: USER
+
+dn: cn=tester,cn=USER,cn=users,ou=members,dc=leonardosugahara,dc=com,dc=br
+objectClass: top
+objectClass: person
+cn: tester
+sn: tester
+userPassword: {SHA}q02NKl9IChNwZ9oXEAJxzRdmB6E=
+
+dn: cn=developer,cn=USER,cn=users,ou=members,dc=leonardosugahara,dc=com,dc=br
+objectClass: top
+objectClass: person
+cn: developer
+sn: developer
+userPassword: {SHA}Pay85TLM1I8n+mLpkwZ7PDXwlPc=
